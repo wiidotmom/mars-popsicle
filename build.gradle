@@ -187,7 +187,7 @@ dependencies {
 // See https://docs.gradle.org/current/dsl/org.gradle.language.jvm.tasks.ProcessResources.html
 tasks.named('processResources', ProcessResources).configure {
     var replaceProperties = [
-            mc_version: mc_version, destroy_version: destroy_version, cold_sweat_version: cold_sweat_version,
+            mc_version: mc_version, ad_astra_version: ad_astra_version, cold_sweat_version: cold_sweat_version,
             loader_version_range: loader_version_range,
             neo_version_range: neo_version_range, neo_version: neo_version, 
             mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
