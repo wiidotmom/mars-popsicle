@@ -14,6 +14,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraftforge.fml.common.Mod;
 
+import static com.momosoftworks.coldsweat.common.capability.handler.EntityTempManager.TEMPERATURE_ENABLED_ENTITIES;
+
 @Mod(MarsPopsicle.MODID)
 public class MarsPopsicle {
 
@@ -34,10 +36,9 @@ public class MarsPopsicle {
   @SubscribeEvent
   public static void defaultModifiersInit(GatherDefaultTempModifiersEvent event)
   {
-    if (event.getEntity() instanceof Player && event.getTrait() == Temperature.Trait.WORLD)
+    if ((event.getEntity() instanceof Player || TEMPERATURE_ENABLED_ENTITIES.contains(event.getEntity().getType())) && event.getTrait() == Temperature.Trait.WORLD)
     {
-      LOGGER.info("Initialized oxygen temp modifier for " + ((Player) event.getEntity()).getName().getString());
-      event.addModifier(new OxygenTempModifier().tickRate(60), Placement.Duplicates.BY_CLASS, Placement.of(Placement.Mode.AFTER, Placement.Order.LAST, (mod2) -> mod2 instanceof BiomeTempModifier));
+      event.addModifier(new OxygenTempModifier().tickRate(40), Placement.Duplicates.BY_CLASS, Placement.of(Placement.Mode.AFTER, Placement.Order.LAST, (mod) -> mod instanceof BiomeTempModifier));
     }
   }
 }

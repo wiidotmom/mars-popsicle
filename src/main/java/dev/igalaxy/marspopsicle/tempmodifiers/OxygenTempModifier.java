@@ -3,8 +3,6 @@ package dev.igalaxy.marspopsicle.tempmodifiers;
 import com.momosoftworks.coldsweat.api.temperature.modifier.TempModifier;
 import com.momosoftworks.coldsweat.api.util.Temperature;
 import com.momosoftworks.coldsweat.api.util.Temperature.Units;
-import com.petrolpark.destroy.capability.level.pollution.LevelPollution.PollutionType;
-import com.petrolpark.destroy.util.PollutionHelper;
 import earth.terrarium.adastra.api.systems.OxygenApi;
 import earth.terrarium.adastra.common.constants.PlanetConstants;
 import net.minecraft.world.entity.LivingEntity;
