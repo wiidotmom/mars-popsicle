@@ -1,0 +1,11 @@
+{
+  "required_mods": [
+    "ad_astra"
+  ],
+  "dimensions": [
+    "ad_astra:mercury"
+  ],
+  "temperature": 464,
+  "units": "C",
+  "is_offset": true
+}
