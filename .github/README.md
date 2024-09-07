@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/8f748baf-a4e2-4c6c-aecc-f4e4105254c9)
+
 In the void of space, your blood will boil before you freeze to death![^1]
 
 - Ad Astra-accurate base temperatures for each planet (and their orbits)
