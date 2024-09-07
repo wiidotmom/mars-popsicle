@@ -3,6 +3,7 @@ package dev.igalaxy.marspopsicle;
 import com.momosoftworks.coldsweat.api.event.core.GatherDefaultTempModifiersEvent;
 import com.momosoftworks.coldsweat.api.event.core.TempModifierRegisterEvent;
 import com.momosoftworks.coldsweat.api.temperature.modifier.BiomeTempModifier;
+import com.momosoftworks.coldsweat.api.temperature.modifier.UndergroundTempModifier;
 import com.momosoftworks.coldsweat.api.util.Placement;
 import com.momosoftworks.coldsweat.api.util.Temperature;
 import dev.igalaxy.marspopsicle.tempmodifiers.OxygenTempModifier;
@@ -30,15 +31,15 @@ public class MarsPopsicle {
   public static void onModifiersRegister(TempModifierRegisterEvent event)
   {
     LOGGER.info("Registered oxygen temp modifier");
-    event.register(new ResourceLocation(MODID, "oxygen"), () -> new OxygenTempModifier());
+    event.register(new ResourceLocation(MODID, "oxygen"), OxygenTempModifier::new);
   }
 
   @SubscribeEvent
   public static void defaultModifiersInit(GatherDefaultTempModifiersEvent event)
   {
-    if ((event.getEntity() instanceof Player || TEMPERATURE_ENABLED_ENTITIES.contains(event.getEntity().getType())) && event.getTrait() == Temperature.Trait.WORLD)
+    if (event.getTrait() == Temperature.Trait.WORLD)
     {
-      event.addModifier(new OxygenTempModifier().tickRate(40), Placement.Duplicates.BY_CLASS, Placement.of(Placement.Mode.AFTER, Placement.Order.LAST, (mod) -> mod instanceof BiomeTempModifier));
+      event.addModifier(new OxygenTempModifier().tickRate(10), Placement.Duplicates.BY_CLASS, Placement.of(Placement.Mode.AFTER, Placement.Order.FIRST, (mod) -> mod instanceof UndergroundTempModifier));
     }
   }
 }
