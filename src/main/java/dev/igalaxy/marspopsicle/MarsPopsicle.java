@@ -1,21 +1,17 @@
 package dev.igalaxy.marspopsicle;
 
-import com.momosoftworks.coldsweat.api.event.core.GatherDefaultTempModifiersEvent;
-import com.momosoftworks.coldsweat.api.event.core.TempModifierRegisterEvent;
-import com.momosoftworks.coldsweat.api.temperature.modifier.BiomeTempModifier;
+import com.momosoftworks.coldsweat.api.event.core.init.GatherDefaultTempModifiersEvent;
+import com.momosoftworks.coldsweat.api.event.core.registry.TempModifierRegisterEvent;
 import com.momosoftworks.coldsweat.api.temperature.modifier.UndergroundTempModifier;
 import com.momosoftworks.coldsweat.api.util.Placement;
 import com.momosoftworks.coldsweat.api.util.Temperature;
 import dev.igalaxy.marspopsicle.tempmodifiers.OxygenTempModifier;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraftforge.fml.common.Mod;
-
-import static com.momosoftworks.coldsweat.common.capability.handler.EntityTempManager.TEMPERATURE_ENABLED_ENTITIES;
 
 @Mod(MarsPopsicle.MODID)
 public class MarsPopsicle {
